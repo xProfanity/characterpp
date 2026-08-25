@@ -1,27 +1,40 @@
 #include <iostream>
 
 class Character {
-	public:
+	private:
 		std::string name;
 		int age;
-		
-	Character(std::string name_val, int age_val) : name(name_val), age(age_val) {
-		
-		std::cout << "Hi " << name << " aged " << age << "!" << std::endl;
-	}
+		int hp = 100;
+		std::string weapon;
 	
-	Character() {
-		name = "Traveller";
-		age = 0;
+	public:
 		
-		std::cout << "Hello " << name << "!" << std::endl;
-	}
+		Character(std::string name_val, int age_val) : name(name_val), age(age_val) {}
+		
+		Character() {
+			name = "Traveller";
+			age = 0;
+		}
+		
+		void showHealth() {
+			std::cout << name << ": ";
+			std::cout << hp << "HP" << std::endl;
+		}
+		
+		void equipWeapon(std::string weapon_val) {
+			weapon = weapon_val;
+			
+			std::cout << weapon << " Equiped!" << std::endl;
+		}
 	
 };
 
 int main() {
 	Character c1("afk", 139);
-	Character c2("profanity", 679);
+	Character c2;
+	
+	c2.showHealth();
+	c2.equipWeapon("A Cool Stick that look like a gun nobody knows what it does");
 	
 	return 0;
 }
