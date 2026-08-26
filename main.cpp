@@ -1,4 +1,5 @@
 #include <iostream>
+#include <map>
 
 class Character {
 	private:
@@ -6,6 +7,13 @@ class Character {
 		int age;
 		int hp = 100;
 		std::string weapon;
+		int damage = 5;
+	
+		std::map<std::string, int> weapons = {
+			{ "sword", 25 },
+			{ "axe", 35 },
+			{ "bow", 20 }
+		};
 	
 	public:
 		
@@ -30,9 +38,19 @@ class Character {
 		}
 		
 		void equipWeapon(std::string weapon_val) {
+			if (!weapons[weapon_val]) {
+				std::cout << "Unknown weapon, You remain unarmed!" << std::endl;
+				return;
+			}
+			
 			weapon = weapon_val;
+			damage = weapons[weapon];
 			
 			std::cout << weapon << " Equiped!" << std::endl;
+		}
+		
+		std::string getWeapon() {
+			return weapon;
 		}
 		
 		int getHp() {
@@ -74,17 +92,24 @@ class Character {
 			
 			std::cout << name << " took a healing potion! +" << amount << "HP" << std::endl;
 		}
+		
+		void attack() {
+			int damage_dealt = damage;
+			
+			std::cout << "Blowwww! You attack! Deals " << damage_dealt << "HP damage to your enemy!" << std::endl;
+		}
 	
 };
 
 int main() {
 	Character c1("afk", 139);
 	
-	c1.equipWeapon("A Cool Stick");
+	c1.equipWeapon("axe");
 	c1.showHealth();
 	c1.takeDamage(-39);
 	c1.showHealth();
 	c1.heal(-55);
+	c1.attack();
 	c1.showHealth();
 	
 	return 0;
