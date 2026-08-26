@@ -98,6 +98,10 @@ class Character {
 			
 			std::cout << "Blowwww! You attack! Deals " << damage_dealt << "HP damage to your enemy!" << std::endl;
 		}
+		
+		bool isAlive() {
+			return hp > 0;
+		}
 	
 };
 
@@ -111,6 +115,14 @@ int main() {
 	c1.heal(-55);
 	c1.attack();
 	c1.showHealth();
+	c1.takeDamage(250);
+	c1.showHealth();
+	
+	if (c1.isAlive()) {
+		std::cout << "Bro you is living" << std::endl;
+	} else {
+		std::cout << "Unlucky mf" << std::endl;
+	}
 	
 	return 0;
 }
