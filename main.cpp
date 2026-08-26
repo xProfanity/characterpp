@@ -9,7 +9,9 @@ class Character {
 	
 	public:
 		
-		Character(std::string name_val, int age_val) : name(name_val), age(age_val) {}
+		Character(std::string name_val, int age_val) : name(name_val), age(age_val) {
+			std::cout << name << " aged " << age << " spawned!" << std::endl;
+		}
 		
 		Character() {
 			name = "Traveller";
@@ -26,15 +28,38 @@ class Character {
 			
 			std::cout << weapon << " Equiped!" << std::endl;
 		}
+		
+		int getHp() {
+			return hp;
+		}
+		
+		int setHp(int hp_val) {
+			hp = hp_val;
+		}
+		
+		void takeDamage(int amount) {
+			if (amount > hp) {
+				setHp(0);
+				
+				std::cout << name << " died! :(" << std::endl;
+				return;
+			}
+			
+			hp -= amount;
+			
+			std::cout << name << " took " << amount << " of HP damage!" << std::endl;
+			std::cout << name << " now have " << hp << " HP left" << std::endl; 
+		}
 	
 };
 
 int main() {
 	Character c1("afk", 139);
-	Character c2;
 	
-	c2.showHealth();
-	c2.equipWeapon("A Cool Stick that look like a gun nobody knows what it does");
+	c1.equipWeapon("A Cool Stick");
+	c1.showHealth();
+	c1.takeDamage(39);
+	c1.showHealth();
 	
 	return 0;
 }
