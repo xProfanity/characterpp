@@ -8,6 +8,9 @@ class Character {
 		int hp = 100;
 		std::string weapon;
 		int damage = 5;
+		
+		int lvl = 1;
+		long xp = 50;
 	
 		std::map<std::string, int> weapons = {
 			{ "sword", 25 },
@@ -47,6 +50,8 @@ class Character {
 			damage = weapons[weapon];
 			
 			std::cout << weapon << " Equiped!" << std::endl;
+		
+			gainExperience(10);
 		}
 		
 		std::string getWeapon() {
@@ -91,16 +96,45 @@ class Character {
 			setHp(hp + amount);
 			
 			std::cout << name << " took a healing potion! +" << amount << "HP" << std::endl;
+			
+			gainExperience(5);
 		}
 		
 		void attack() {
 			int damage_dealt = damage;
 			
 			std::cout << "Blowwww! You attack! Deals " << damage_dealt << "HP damage to your enemy!" << std::endl;
+			
+			gainExperience(15);
 		}
 		
 		bool isAlive() {
 			return hp > 0;
+		}
+		
+		void setXp(int amount) {
+			amount = abs(amount);
+			
+			xp += amount;
+		}
+		
+		int getLevel() {
+			return lvl;
+		}
+		
+		void gainExperience(int amount) {
+			int old_lvl = lvl;
+			
+			setXp(amount);
+			
+			lvl = xp / 50;
+			
+			std::cout << "+" << amount << "XP gained!" << std::endl;
+			
+			if (lvl > old_lvl) {
+				std::cout << "Leveled up! Your now LEVEL " << lvl << std::endl;
+				std::cout << xp << "XP points!" << std::endl;
+			}
 		}
 	
 };
@@ -114,8 +148,14 @@ int main() {
 	c1.showHealth();
 	c1.heal(-55);
 	c1.attack();
-	c1.showHealth();
-	c1.takeDamage(250);
+	c1.attack();
+	c1.attack();
+	c1.attack();
+	c1.attack();
+	c1.attack();
+	c1.attack();
+	c1.attack();
+	c1.attack();
 	c1.showHealth();
 	
 	if (c1.isAlive()) {
