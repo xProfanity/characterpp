@@ -29,6 +29,10 @@ class Character {
 			age = 0;
 		}
 		
+		~Character() {
+			std::cout << "Character suddenly exploded and died! Haha fucking crazy!" << std::endl;
+		}
+		
 		int abs(int n) {
 			if (n < 0) return n * -1;
 			
