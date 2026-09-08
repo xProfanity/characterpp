@@ -30,7 +30,7 @@ class Character {
 		
 		int abs(int n);
 		
-		void showHealth();
+		void showHealth() const;
 		
 		void equipWeapon(std::string weapon_val);
 		
@@ -46,11 +46,11 @@ class Character {
 		
 		void attack();
 		
-		bool isAlive();
+		bool isAlive() const;
 		
 		void setXp(int amount);
 		
-		int getLevel();
+		int getLevel() const;
 		
 		void gainExperience(int amount);
 	

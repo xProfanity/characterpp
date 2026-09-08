@@ -1,4 +1,4 @@
-#includ bhe "Character.hpp"
+#include "Character.hpp"
 
 #include <iostream>
 #include <string>
@@ -22,7 +22,7 @@ int Character::abs(int n) {
 	return n;
 }
 
-void Character::showHealth() {
+void Character::showHealth() const {
 	std::cout << name << ": ";
 	std::cout << hp << "HP" << std::endl;
 }
@@ -95,7 +95,7 @@ void Character::attack() {
 	gainExperience(15);
 }
 
-bool Character::isAlive() {
+bool Character::isAlive() const {
 	return hp > 0;
 }
 
@@ -105,7 +105,7 @@ void Character::setXp(int amount) {
 	xp += amount;
 }
 
-int Character::getLevel() {
+int Character::getLevel() const {
 	return lvl;
 }
 
