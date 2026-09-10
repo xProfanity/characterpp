@@ -19,6 +19,14 @@ Character::Character() {
 	std::cout << "Bronem a npc!" << std::endl;
 }
 
+Character::Character(const Character& character) {
+	name = character.name + " clone";
+	age = character.age;
+	weapon = character.weapon;
+	
+	std::cout << character.name << ": " << "Shadow clone jutsu! @*@**" << std::endl;
+}
+
 Character::~Character() {
 	std::cout << name << ": " << "Character suddenly exploded and died! Haha fucking crazy!" << std::endl;
 }

@@ -25,7 +25,8 @@ class Character {
 		Character();
 		Character(std::string name_val);
 		Character(std::string name_val, int age_val);
-				
+		Character(const Character& character);
+		
 		~Character();
 		
 		int abs(int n);

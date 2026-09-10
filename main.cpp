@@ -11,6 +11,7 @@ int main() {
 	
 	enemy.attack(protagonist);
 	
+	Character clone(protagonist);
 	
 	protagonist.showHealth();
 }
