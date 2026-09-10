@@ -6,14 +6,14 @@
 Character::Character(std::string name_val, int age_val) : name(name_val), age(age_val) {
 	std::cout << name << " aged " << age << " spawned!" << std::endl;
 }
-		
+
 Character::Character() {
 	name = "Traveller";
 	age = 0;
 }
 
 Character::~Character() {
-	std::cout << "Character suddenly exploded and died! Haha fucking crazy!" << std::endl;
+	std::cout << name << ": " << "Character suddenly exploded and died! Haha fucking crazy!" << std::endl;
 }
 
 int Character::abs(int n) {
@@ -29,14 +29,14 @@ void Character::showHealth() const {
 
 void Character::equipWeapon(std::string weapon_val) {
 	if (!weapons[weapon_val]) {
-		std::cout << "Unknown weapon, You remain unarmed!" << std::endl;
+		std::cout << name << ": " << "Unknown weapon, You remain unarmed!" << std::endl;
 		return;
 	}
 	
 	weapon = weapon_val;
 	damage = weapons[weapon];
 	
-	std::cout << weapon << " Equiped!" << std::endl;
+	std::cout << name << ": " << weapon << " Equiped!" << std::endl;
 
 	gainExperience(10);
 }
@@ -87,10 +87,12 @@ void Character::heal(int amount) {
 	gainExperience(5);
 }
 
-void Character::attack() {
+void Character::attack(Character& character) {
 	int damage_dealt = damage;
 	
-	std::cout << "Blowwww! You attack! Deals " << damage_dealt << "HP damage to your enemy!" << std::endl;
+	std::cout << "Blowwww! " << name << " attacks " << character.getName() <<  " Deals " << damage_dealt << "HP damage to the enemy!" << std::endl;
+	
+	character.takeDamage(damage_dealt);
 	
 	gainExperience(15);
 }
@@ -116,10 +118,10 @@ void Character::gainExperience(int amount) {
 	
 	lvl = xp / 50;
 	
-	std::cout << "+" << amount << "XP gained!" << std::endl;
+	std::cout << name << ": " << "+" << amount << "XP gained!" << std::endl;
 	
 	if (lvl > old_lvl) {
-		std::cout << "Leveled up! Your now LEVEL " << lvl << std::endl;
-		std::cout << xp << "XP points!" << std::endl;
+		std::cout << name << ": " << "Leveled up! Your now LEVEL " << lvl << std::endl;
+		std::cout << name << ": " << xp << "XP points!" << std::endl;
 	}
 }

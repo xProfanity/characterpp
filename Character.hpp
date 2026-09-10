@@ -30,6 +30,10 @@ class Character {
 		
 		int abs(int n);
 		
+		std::string getName() {
+			return name;
+		}
+		
 		void showHealth() const;
 		
 		void equipWeapon(std::string weapon_val);
@@ -44,7 +48,7 @@ class Character {
 		
 		void heal(int amount);
 		
-		void attack();
+		void attack(Character& character);
 		
 		bool isAlive() const;
 		
