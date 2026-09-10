@@ -7,9 +7,16 @@ Character::Character(std::string name_val, int age_val) : name(name_val), age(ag
 	std::cout << name << " aged " << age << " spawned!" << std::endl;
 }
 
+Character::Character(std::string name_val) : name(name_val) {
+	age = 100;
+	std::cout << name << " aged " << age << " spawned!" << std::endl;
+}
+
 Character::Character() {
-	name = "Traveller";
+	name = "NPC";
 	age = 0;
+	
+	std::cout << "Bronem a npc!" << std::endl;
 }
 
 Character::~Character() {

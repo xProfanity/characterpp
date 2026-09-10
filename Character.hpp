@@ -21,11 +21,11 @@ class Character {
 		};
 	
 	public:
-		
-		Character(std::string name_val, int age_val);
-		
+	
 		Character();
-		
+		Character(std::string name_val);
+		Character(std::string name_val, int age_val);
+				
 		~Character();
 		
 		int abs(int n);

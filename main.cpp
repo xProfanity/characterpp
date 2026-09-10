@@ -3,6 +3,8 @@
 int main() {
 	Character protagonist("profanity", 209);
 	Character enemy("boots", 916);
+
+	Character npc;
 	
 	enemy.equipWeapon("axe");
 	protagonist.equipWeapon("sword");
