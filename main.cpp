@@ -12,6 +12,12 @@ int main() {
 	enemy.attack(protagonist);
 	
 	Character clone(protagonist);
+
+    clone.addItem("dildo");
+    clone.addItem("basketball");
+    clone.addItem("healing potion");
+
+    clone.showInventory();
 	
 	protagonist.showHealth();
 }

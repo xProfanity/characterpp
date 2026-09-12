@@ -2,6 +2,7 @@
 
 #include <string>
 #include <map>
+#include <vector>
 
 class Character {
 	private:
@@ -14,6 +15,8 @@ class Character {
 		int lvl = 1;
 		long xp = 50;
 	
+        std::vector<std::string> inventory;
+
 		std::map<std::string, int> weapons = {
 			{ "sword", 25 },
 			{ "axe", 35 },
@@ -28,6 +31,10 @@ class Character {
 		Character(const Character& character);
 		
 		~Character();
+
+        void addItem(std::string item);
+        void removeItem(std::string item);
+        void showInventory();
 		
 		int abs(int n);
 		

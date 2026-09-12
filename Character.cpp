@@ -31,6 +31,27 @@ Character::~Character() {
 	std::cout << name << ": " << "Character suddenly exploded and died! Haha fucking crazy!" << std::endl;
 }
 
+void Character::addItem(std::string item) {
+    inventory.push_back(item);
+}
+
+void Character::removeItem(std::string item) {
+    inventory.pop_back();
+}
+
+void Character::showInventory() {
+
+    std::cout << name << " inventory" << std::endl;
+
+    std::cout << "[ ";
+
+    for(std::string item : inventory) {
+        std::cout << item << ",";
+    }
+
+    std::cout << " ]" << std::endl;
+}
+
 int Character::abs(int n) {
 	if (n < 0) return n * -1;
 	
